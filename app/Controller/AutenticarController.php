@@ -10,12 +10,15 @@ class AutenticarController extends AbstractController
     {
         $usuarioConexao = new Usuario();
         $usuario = $usuarioConexao->buscarPorEmail($requestData['email']);
-        if (null === $usuario) {
+        if (empty($usuario)) {
             $this->redirect('/error');
+
+            exit;
         }
 
-        // lógica para fazer login
-        // redirecionar para painel
+        $_SESSION['usuarioEstaLogado'] = true;
+        $_SESSION['email'] = $requestData['email'];
+
         $this->redirect('/app');
     }
 }
