@@ -54,7 +54,7 @@
       <div class="mb-4 d-flex flex-row justify-content-between">
         <h1>Categorias</h1>
         <div>
-          <a href="nova_categoria.html" class="btn btn-primary"><i class="bi bi-plus"></i>Nova categoria</a>
+          <a href="/categorias/cadastrar" class="btn btn-primary"><i class="bi bi-plus"></i>Nova categoria</a>
         </div>
       </div>
 
@@ -67,14 +67,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Informática</td>
-            <td class="col-1 text-align-right">
-              <button class="btn btn-secondary btn-sm"><i class="bi bi-pencil"></i></button>
-              <button class="btn btn-danger btn-sm"><i class="bi bi-x"></i></button>
-            </td>
-          </tr>
+          <?php foreach($data['categorias'] as $categoria) { ?>
+            <tr>
+              <th scope="row"><?php echo $categoria['id']; ?></th>
+              <td><?php echo $categoria['nome']; ?></td>
+              <td class="col-1 text-align-right">
+                <a href="/categorias/editar?id=<?php echo $categoria['id']; ?>" class="btn btn-secondary btn-sm"><i class="bi bi-pencil"></i></a>
+                <a href="/categorias/remover?id=<?php echo $categoria['id']; ?>" class="btn btn-danger btn-sm"><i class="bi bi-x"></i></a>
+              </td>
+            </tr>
+          <?php } ?>
         </tbody>
 
       </table>

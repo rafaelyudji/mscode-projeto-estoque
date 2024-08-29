@@ -25,8 +25,7 @@
           <ul class="nav nav-pills d-flex align-items-center">
             <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Início</a></li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Vendas
               </a>
               <ul class="dropdown-menu">
@@ -35,13 +34,12 @@
               </ul>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Produtos
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="produtos.html">Estoque</a></li>
-                <li><a class="dropdown-item" href="categorias.html">Categorias</a></li>
+                <li><a class="dropdown-item active" href="categorias.html">Categorias</a></li>
               </ul>
             </li>
             <li class="nav-item"><a href="#" class="btn btn-outline-danger m-0 ms-4" aria-current="page">Sair</a></li>
@@ -51,38 +49,48 @@
     </div>
 
     <div class="container py-5">
-      <div class="mb-4 d-flex flex-row justify-content-between">
-        <h1>Categorias</h1>
-        <div>
-          <a href="nova_categoria.html" class="btn btn-primary"><i class="bi bi-plus"></i>Nova categoria</a>
-        </div>
+      <div class="mb-4">
+        <?php
+          if (isset($data['categoria'])) {
+            echo "<h1>Editar categoria</h1>";
+          } else {
+            echo "<h1>Nova categoria</h1>";
+          }
+        ?>
       </div>
 
-      <table class="table table-striped table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Nome</th>
-            <th scope="col-1 text-align-right">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Informática</td>
-            <td class="col-1 text-align-right">
-              <button class="btn btn-secondary btn-sm"><i class="bi bi-pencil"></i></button>
-              <button class="btn btn-danger btn-sm"><i class="bi bi-x"></i></button>
-            </td>
-          </tr>
-        </tbody>
+      <div class="w-50 mt-2">
+      <?php
+        if (isset($data['categoria'])) {
+          echo "<form action='/categorias/cadastrar/salvar?id={$data['categoria']['id']}'>";
+        } else {
+          echo '<form action="/categorias/cadastrar/salvar">';
+        }
+      ?>
+        <?php if (isset($data['categoria'])) { ?>
+          <div class="mb-3">
+            <label for="id" class="form-label">Id: </label>
+            <input type="number" class="form-control" id="id" name="id" readonly value="<?php echo $data['categoria']['id']; ?>">
+          </div>
+        <?php } ?>
 
-      </table>
+          <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <?php
+              if (isset($data['categoria'])) {
+                echo '<input type="text" class="form-control" name="nome" id="nome" value="' . $data['categoria']['nome'] . '">';
+              } else {
+                echo '<input type="text" class="form-control" name="nome" id="nome">';
+              }
+            ?>
+          </div>
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+      </div>
     </div>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>
