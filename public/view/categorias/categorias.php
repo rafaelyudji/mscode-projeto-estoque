@@ -40,8 +40,8 @@
                 Produtos
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="produtos.html">Estoque</a></li>
-                <li><a class="dropdown-item" href="categorias.html">Categorias</a></li>
+              <li><a class="dropdown-item" href="/produtos">Estoque</a></li>
+              <li><a class="dropdown-item" href="/categorias">Categorias</a></li>
               </ul>
             </li>
             <li class="nav-item"><a href="#" class="btn btn-outline-danger m-0 ms-4" aria-current="page">Sair</a></li>

@@ -2,13 +2,21 @@
 
 use App\Controller\AppController;
 use App\Controller\AutenticarController;
-use App\Controller\Categorias\CadastrarController;
-use App\Controller\Categorias\EditarController;
-use App\Controller\Categorias\ListarController;
-use App\Controller\Categorias\RemoverController;
-use App\Controller\Categorias\SalvarController;
 use App\Controller\Error\NotFoundController;
 use App\Controller\LoginController;
+
+use App\Controller\Categorias\CadastrarController as CategoriasCadastrarController;
+use App\Controller\Categorias\EditarController as CategoriasEditarController;
+use App\Controller\Categorias\ListarController as CategoriasListarController;
+use App\Controller\Categorias\RemoverController as CategoriasRemoverController;
+use App\Controller\Categorias\SalvarController as CategoriasSalvarController;
+
+use App\Controller\Produtos\CadastrarController as ProdutosCadastrarController;
+use App\Controller\Produtos\EditarController as ProdutosEditarController;
+use App\Controller\Produtos\ListarController as ProdutosListarController;
+use App\Controller\Produtos\RemoverController as ProdutosRemoverController;
+use App\Controller\Produtos\SalvarController as ProdutosSalvarController;
+
 
 $router = [
     'routes' => [
@@ -16,11 +24,22 @@ $router = [
         '/login' => LoginController::class,
         '/login/autenticar' => AutenticarController::class,
         '/app' => AppController::class,
-        '/categorias' => ListarController::class,
-        '/categorias/editar' => EditarController::class,
-        '/categorias/remover' => RemoverController::class,
-        '/categorias/cadastrar' => CadastrarController::class,
-        '/categorias/cadastrar/salvar' => SalvarController::class,
+        
+        // Rotas para Categorias
+        '/categorias' => CategoriasListarController::class,
+        '/categorias/editar' => CategoriasEditarController::class,
+        '/categorias/remover' => CategoriasRemoverController::class,
+        '/categorias/cadastrar' => CategoriasCadastrarController::class,
+        '/categorias/cadastrar/salvar' => CategoriasSalvarController::class,
+        
+        // Rotas para Produtos
+        '/produtos' => ProdutosListarController::class,
+        '/produtos/editar' => ProdutosEditarController::class,
+        '/produtos/remover' => ProdutosRemoverController::class,
+        '/produtos/cadastrar' => ProdutosCadastrarController::class,
+        '/produtos/cadastrar/salvar' => ProdutosSalvarController::class,
     ],
     'default' => NotFoundController::class
 ];
+
+
