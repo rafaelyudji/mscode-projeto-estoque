@@ -38,8 +38,8 @@
                 Produtos
               </a>
               <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/produtos">Estoque</a></li>
-              <li><a class="dropdown-item" href="/categorias">Categorias</a></li>
+                <li><a class="dropdown-item" href="/produtos">Estoque</a></li>
+                <li><a class="dropdown-item" href="/categorias">Categorias</a></li>
               </ul>
             </li>
             <li class="nav-item"><a href="#" class="btn btn-outline-danger m-0 ms-4" aria-current="page">Sair</a></li>
@@ -86,12 +86,14 @@
 
           <div class="row">
             <div class="mb-3 col-4">
-              <label for="categoriaId" class="form-label">Categoria Id</label>
-              <input type="number" class="form-control" id="categoriaId" name="categoriaId" value="<?php echo isset($data['produto']) ? htmlspecialchars($data['produto']['categoria_id']) : ''; ?>">
+              <label for="categoria_id" class="form-label">Categoria Id</label>
+              <input type="number" class="form-control" id="categoria_id" name="categoria_id" value="<?php echo isset($data['produto']) ? htmlspecialchars($data['produto']['categoria_id']) : ''; ?>">
             </div>
             <div class="mb-3 col-4">
-              <label for="quantidade" class="form-label">Quantidade</label>
-              <input type="number" class="form-control" id="quantidade" name="quantidade" value="<?php echo isset($data['produto']) ? htmlspecialchars($data['produto']['quantidade']) : ''; ?>">
+              <label for="quantidade" class="form-label">Quantidade Disponível</label>
+              <input type="number" class="form-control" id="quantidade" name="quantidade"
+                <?php if (isset($data['produto'])) echo 'readonly'; ?>
+                value="<?php echo isset($data['produto']) ? htmlspecialchars($data['produto']['quantidade_disponivel']) : ''; ?>">
             </div>
             <div class="mb-3 col-4">
               <label for="valor" class="form-label">Valor</label>

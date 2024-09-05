@@ -64,11 +64,11 @@
             <th scope="col">Id</th>
             <th scope="col">Nome</th>
             <th scope="col">Descrição</th>
-            <th scope="col">Categoria_Id</th>
+            <th scope="col">Categoria_id</th>
             <th scope="col">Valor</th>
-            <th scope="col">Qtd. Disponível</th>
             <th scope="col">Qtd. Inicial</th>
-            <th scope="col-1 text-align-right">Ações</th>
+            <th scope="col">Qtd. Disponível</th>
+            <th scope="col-2 text-align-right">Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -78,12 +78,14 @@
               <td><?php echo htmlspecialchars($produto['nome']); ?></td>
               <td><?php echo htmlspecialchars($produto['descricao']); ?></td>
               <td><?php echo htmlspecialchars($produto['categoria_id']); ?></td>
-              <td>R$ <?php echo number_format($produto['valor'], 2, ',', '.'); ?></td>
+              <td>R$ <?php echo number_format($produto['valor'], 2, ',', '.'); ?></td>  
               <td><?php echo htmlspecialchars($produto['quantidade_inicial']); ?></td>
               <td><?php echo htmlspecialchars($produto['quantidade_disponivel']); ?></td>
-              <td class="col-1 text-align-right">
+              <td class="col-2 text-align-right">
+              <button class="btn btn-primary btn-sm"><i class="bi bi-plus"></i></button>
                 <a href="/produtos/editar?id=<?php echo htmlspecialchars($produto['id']); ?>" class="btn btn-secondary btn-sm"><i class="bi bi-pencil"></i></a>
                 <a href="/produtos/remover?id=<?php echo htmlspecialchars($produto['id']); ?>" class="btn btn-danger btn-sm"><i class="bi bi-x"></i></a>
+                <a href="/produtos/vender" class="btn btn-primary btn-sm">Vender</a>
               </td>
             </tr>
           <?php } ?>

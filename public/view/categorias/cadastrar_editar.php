@@ -38,8 +38,8 @@
                 Produtos
               </a>
               <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/produtos">Estoque</a></li>
-              <li><a class="dropdown-item" href="/categorias">Categorias</a></li>
+                <li><a class="dropdown-item" href="produtos.html">Estoque</a></li>
+                <li><a class="dropdown-item active" href="categorias.html">Categorias</a></li>
               </ul>
             </li>
             <li class="nav-item"><a href="#" class="btn btn-outline-danger m-0 ms-4" aria-current="page">Sair</a></li>
@@ -51,54 +51,39 @@
     <div class="container py-5">
       <div class="mb-4">
         <?php
-          if (isset($data['produto'])) {
-            echo "<h1>Editar produto</h1>";
+          if (isset($data['categoria'])) {
+            echo "<h1>Editar categoria</h1>";
           } else {
-            echo "<h1>Novo produto</h1>";
+            echo "<h1>Nova categoria</h1>";
           }
         ?>
       </div>
 
       <div class="w-50 mt-2">
-        <?php
-          if (isset($data['produto'])) {
-            echo "<form action='/produtos/cadastrar/salvar?id={$data['produto']['id']}' method='POST'>";
-          } else {
-            echo '<form action="/produtos/cadastrar/salvar" method="POST">';
-          }
-        ?>
-          <?php if (isset($data['produto'])) { ?>
-            <div class="mb-3">
-              <label for="id" class="form-label">Id: </label>
-              <input type="number" class="form-control" id="id" name="id" readonly value="<?php echo htmlspecialchars($data['produto']['id']); ?>">
-            </div>
-          <?php } ?>
+      <?php
+        if (isset($data['categoria'])) {
+          echo "<form action='/categorias/cadastrar/salvar?id={$data['categoria']['id']}'>";
+        } else {
+          echo '<form action="/categorias/cadastrar/salvar">';
+        }
+      ?>
+        <?php if (isset($data['categoria'])) { ?>
+          <div class="mb-3">
+            <label for="id" class="form-label">Id: </label>
+            <input type="number" class="form-control" id="id" name="id" readonly value="<?php echo $data['categoria']['id']; ?>">
+          </div>
+        <?php } ?>
 
           <div class="mb-3">
             <label for="nome" class="form-label">Nome</label>
-            <input type="text" class="form-control" id="nome" name="nome" value="<?php echo isset($data['produto']) ? htmlspecialchars($data['produto']['nome']) : ''; ?>">
+            <?php
+              if (isset($data['categoria'])) {
+                echo '<input type="text" class="form-control" name="nome" id="nome" value="' . $data['categoria']['nome'] . '">';
+              } else {
+                echo '<input type="text" class="form-control" name="nome" id="nome">';
+              }
+            ?>
           </div>
-
-          <div class="mb-3">
-            <label for="descricao" class="form-label">Descrição</label>
-            <textarea class="form-control" id="descricao" name="descricao" rows="5" style="resize:none;"><?php echo isset($data['produto']) ? htmlspecialchars($data['produto']['descricao']) : ''; ?></textarea>
-          </div>
-
-          <div class="row">
-            <div class="mb-3 col-4">
-              <label for="categoriaId" class="form-label">Categoria Id</label>
-              <input type="number" class="form-control" id="categoriaId" name="categoriaId" value="<?php echo isset($data['produto']) ? htmlspecialchars($data['produto']['categoria_id']) : ''; ?>">
-            </div>
-            <div class="mb-3 col-4">
-              <label for="quantidade" class="form-label">Quantidade</label>
-              <input type="number" class="form-control" id="quantidade" name="quantidade" value="<?php echo isset($data['produto']) ? htmlspecialchars($data['produto']['quantidade']) : ''; ?>">
-            </div>
-            <div class="mb-3 col-4">
-              <label for="valor" class="form-label">Valor</label>
-              <input type="text" class="form-control" id="valor" name="valor" value="<?php echo isset($data['produto']) ? htmlspecialchars($data['produto']['valor']) : ''; ?>">
-            </div>
-          </div>
-
           <button type="submit" class="btn btn-primary">Salvar</button>
         </form>
       </div>

@@ -37,4 +37,24 @@ class Produto
     {
         $this->query->update('produto', $dados, "id = {$id}");
     }
+
+    public function diminuirQuantidade(int $id): void
+    {
+        $produto = $this->buscar($id);
+        if ($produto) {
+            $novaQuantidade = $produto['quantidade_disponivel'] - 1;
+            if ($novaQuantidade >= 0) {
+                $this->query->update('produto', ['quantidade_disponivel' => $novaQuantidade], "id = {$id}");
+            }
+        }
+    }
+
+    public function aumentarQuantidade(int $id): void
+    {
+        $produto = $this->buscar($id);
+        if ($produto) {
+            $novaQuantidade = $produto['quantidade_disponivel'] + 1;
+            $this->query->update('produto', ['quantidade_disponivel' => $novaQuantidade], "id = {$id}");
+        }
+    }
 }
