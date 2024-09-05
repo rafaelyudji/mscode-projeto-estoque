@@ -82,10 +82,20 @@
               <td><?php echo htmlspecialchars($produto['quantidade_inicial']); ?></td>
               <td><?php echo htmlspecialchars($produto['quantidade_disponivel']); ?></td>
               <td class="col-2 text-align-right">
-              <button class="btn btn-primary btn-sm"><i class="bi bi-plus"></i></button>
-                <a href="/produtos/editar?id=<?php echo htmlspecialchars($produto['id']); ?>" class="btn btn-secondary btn-sm"><i class="bi bi-pencil"></i></a>
-                <a href="/produtos/remover?id=<?php echo htmlspecialchars($produto['id']); ?>" class="btn btn-danger btn-sm"><i class="bi bi-x"></i></a>
-                <a href="/produtos/vender" class="btn btn-primary btn-sm">Vender</a>
+              <a href="/produtos/alterar-quantidade?id=<?php echo htmlspecialchars($produto['id']); ?>&acao=aumentar" class="btn btn-primary btn-sm">
+                  <i class="bi bi-plus"></i>
+              </a>  
+              <a href="/produtos/editar?id=<?php echo htmlspecialchars($produto['id']); ?>" class="btn btn-secondary btn-sm">
+                  <i class="bi bi-pencil"></i>
+              </a>
+              <a href="/produtos/remover?id=<?php echo htmlspecialchars($produto['id']); ?>" class="btn btn-danger btn-sm">
+                  <i class="bi bi-x"></i>
+              </a>
+              <a href="/produtos/alterar-quantidade?id=<?php echo htmlspecialchars($produto['id']); ?>&acao=diminuir" class="btn btn-primary btn-sm">
+                  Vender
+              </a>
+</td>
+
               </td>
             </tr>
           <?php } ?>

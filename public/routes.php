@@ -16,7 +16,7 @@ use App\Controller\Produtos\EditarController as ProdutosEditarController;
 use App\Controller\Produtos\ListarController as ProdutosListarController;
 use App\Controller\Produtos\RemoverController as ProdutosRemoverController;
 use App\Controller\Produtos\SalvarController as ProdutosSalvarController;
-
+use App\Controller\Produtos\AumentarDiminuirController;
 
 $router = [
     'routes' => [
@@ -38,8 +38,8 @@ $router = [
         '/produtos/remover' => ProdutosRemoverController::class,
         '/produtos/cadastrar' => ProdutosCadastrarController::class,
         '/produtos/cadastrar/salvar' => ProdutosSalvarController::class,
+        '/produtos/alterar-quantidade' => AumentarDiminuirController::class, 
+        
     ],
     'default' => NotFoundController::class
 ];
-
-
