@@ -17,7 +17,7 @@
     <div class="border-bottom mb-2">
       <div class="container">
         <header class="d-flex flex-wrap justify-content-center align-items-center py-3">
-          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+          <a href="/app" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
             <img class="me-2" src="/public/assets/images/logotipo.svg" width="53">
             <span class="fs-4">MS Code - Estoque</span>
           </a>
@@ -44,7 +44,7 @@
               <li><a class="dropdown-item" href="/categorias">Categorias</a></li>
               </ul>
             </li>
-            <li class="nav-item"><a href="#" class="btn btn-outline-danger m-0 ms-4" aria-current="page">Sair</a></li>
+            <li class="nav-item"><a href="/login" class="btn btn-outline-danger m-0 ms-4" aria-current="page">Sair</a></li>
           </ul>
         </header>
       </div>

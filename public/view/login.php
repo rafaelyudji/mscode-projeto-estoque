@@ -13,6 +13,12 @@
 </head>
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
     <main class="form-signin w-100 m-auto">
+        <?php if (isset($_SESSION['loginErro'])): ?>
+            <div class="alert alert-danger" role="alert">
+                <?php echo $_SESSION['loginErro']; unset($_SESSION['loginErro']); ?>
+            </div>
+        <?php endif; ?>
+
         <form action="/login/autenticar" method="POST">
             <div class="d-flex align-items-center mb-4">
                 <img class="p-0" src="/assets/images/logotipo.svg" width="72" height="57">
