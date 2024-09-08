@@ -11,28 +11,28 @@ Este é um projeto de sistema de estoque desenvolvido usando o padrão MVC e bas
 ## Imagens
 
 ### Tela de Login
-![Tela de Login](https://imgur.com/9c57JXx)
+![Tela de Login](https://i.imgur.com/9c57JXx.png)
 
 ### Verificação de Email e Senha no Login
-![Verificação de Email e Senha](https://imgur.com/QaGJQMt)
+![Verificação de Email e Senha](https://i.imgur.com/QaGJQMt.png)
 
 ### Criar Nova Categoria
-![Criar Nova Categoria](https://imgur.com/JPzel0C)
+![Criar Nova Categoria](https://i.imgur.com/JPzel0C.png)
 
 ### Página de Listagem de Categorias
-![Listagem de Categorias](https://imgur.com/ybOossx)
+![Listagem de Categorias](https://i.imgur.com/ybOossx.png)
 
 ### Editar Categoria
-![Editar Categoria](https://imgur.com/XXxzjs1)
+![Editar Categoria](https://i.imgur.com/XXxzjs1.png)
 
 ### Criar Novo Produto
-![Criar Novo Produto](https://imgur.com/ya0hDET)
+![Criar Novo Produto](https://i.imgur.com/ya0hDET.png)
 
 ### Página de Listagem de Produtos
-![Listagem de Produtos](https://imgur.com/k5gbkRj)
+![Listagem de Produtos](https://i.imgur.com/k5gbkRj.png)
 
 ### Editar Produto
-![Editar Produto](https://imgur.com/p2ZvMXI)
+![Editar Produto](https://i.imgur.com/p2ZvMXI.png)
 
 ## Estrutura do Projeto
 
